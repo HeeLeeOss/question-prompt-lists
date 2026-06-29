@@ -1,0 +1,33 @@
+{
+  "id": "qpl-sources-001",
+  "title": "Build source allow-list (open/PD vs reference-only; aggregate-stat stance; snapshots)",
+  "project": "question-prompt-lists",
+  "type": "data",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["cancer", "patient-education", "oncology", "licensing"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "dataset",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "question-prompt-lists authors ORIGINAL, openly-licensed 'questions to ask your oncologist' sets grounded in authoritative sources. Source material is NOT uniformly reusable: NCI/Cancer.gov/PDQ text is generally US public domain (verify trademark/embedded media), SEER and GLOBOCAN are AGGREGATE statistics (verify per-use terms; GLOBOCAN often non-commercial), while ACS/ASCO-Cancer.Net/NCCN/Macmillan/Cancer Research UK/ESMO patient QPLs are COPYRIGHTED and must be reference-only (never copied or recompiled), and AJCC staging tables are excluded from reproduction. Controlled-access or identifiable patient data is strictly out of scope. Nothing may be used until its source is allow-listed with verified terms.",
+  "objective": "Create a structured, per-source allow-list that records each source's type (open | public-domain | reference-only), license terms, derivatives permission, required attribution, dataKind (text | aggregate-stat), and a hash/archived snapshot, so the per-set license and provenance gate can be checked consistently and copyrighted QPLs are never copied.",
+  "acceptanceCriteria": [
+    "sources/allow-list.yaml lists >= 5 sources, each typed open|public-domain|reference-only, including >= 1 NCI/public-domain source and the SEER + GLOBOCAN aggregate-stat stance recorded",
+    "Each entry records: name, canonical URL, version/date, retrieval date, license name + URL, snapshot of license/source text, snapshotHash (SHA-256), snapshotArchiveUrl where available, derivativesAllowed, attribution string, dataKind, verifiedBy, verifiedDate",
+    "Copyrighted QPL sources (ACS, ASCO/Cancer.Net, NCCN, Macmillan, Cancer Research UK, ESMO) are marked reference-only with an explicit do-not-copy/recompile note; AJCC marked excluded from reproduction",
+    "Any source with unclear or incompatible terms is marked excluded with a reason",
+    "File validates against sourceAllowListSchema and passes CI structural checks"
+  ],
+  "resources": [
+    "C:/code/elyos/planning/projects/question-prompt-lists/PLAN.md",
+    "C:/code/elyos/planning/ROADMAP.md",
+    "NCI / Cancer.gov / PDQ public-domain notice (verify trademark and embedded-media exceptions)",
+    "SEER citation/usage terms; GLOBOCAN / IARC usage terms (verify per use)"
+  ],
+  "output": "sources/allow-list.yaml plus a short README documenting the allow-list schema, the open/PD-vs-reference-only distinction, and the verification process",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}
