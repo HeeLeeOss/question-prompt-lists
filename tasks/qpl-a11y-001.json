@@ -1,0 +1,34 @@
+{
+  "id": "qpl-a11y-001",
+  "title": "Automate readability + accessibility checks in CI",
+  "project": "question-prompt-lists",
+  "type": "code",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["cancer", "patient-education", "tooling", "ci-cd", "accessibility", "plain-language"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "The style guide (qpl-style-001) sets a plain-language reading-level target and accessibility standard for QPL sets. Currently these are checked manually as part of the advocate review. Automating them in CI means every PR gets a consistent, objective gate before human review even begins, reducing reviewer workload and catching obvious problems early. The checks must run against the rendered text of each set (question text + framing) extracted from YAML, not the raw YAML. Both readability (reading level score) and accessibility (structural linting) checks are needed.",
+  "objective": "Wire automated readability scoring and accessibility linting into pnpm test: extract the question text and framing text from each sets/<stage>/<topic>/set.yaml, compute a readability score (e.g., Flesch-Kincaid or equivalent), fail CI if any set exceeds the target reading level from the style guide, and run basic structural accessibility checks (e.g., ensure questions are listed, no excessively long sentences). Output a per-set report.",
+  "acceptanceCriteria": [
+    "A readability check script reads question text and introFraming from each set YAML and computes a reading-level score (Flesch-Kincaid Grade Level or equivalent); fails CI if any set exceeds the target reading level defined in templates/style-guide.md",
+    "An accessibility linting check verifies structural properties: no question text exceeds a maximum sentence length, all questions end with a '?' character, no all-caps passages, no use of jargon words flagged in an exclusion list (minimum: 5 oncology jargon terms to verify plain-language alternatives are used)",
+    "Both checks are wired into pnpm test and run on every PR; per-set results are printed to stdout",
+    "A set that fails either check blocks merge (CI exits non-zero)",
+    "Existing qpl-set-001 (from M0) passes both checks after this task is complete",
+    "pnpm build && pnpm test pass on a green repo state"
+  ],
+  "resources": [
+    "PLAN.md (Quality gates — plain language + accessibility; Success metrics — 100% of published sets pass)",
+    "TASKS.md (qpl-a11y-001 row; M1 Definition of Done)",
+    "templates/style-guide.md (qpl-style-001 — reading-level target to encode)",
+    "packages/schema/src/schemas.ts (qpl-schema-001 — qplSetSchema for YAML parsing)"
+  ],
+  "output": "scripts/check-readability.ts (or equivalent); CI configuration update; PR",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

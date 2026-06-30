@@ -1,0 +1,32 @@
+{
+  "id": "qpl-taxonomy-001",
+  "title": "Topic x journey-stage taxonomy (controlled vocab)",
+  "project": "question-prompt-lists",
+  "type": "data",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["cancer", "patient-education", "oncology", "health-communication"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "dataset",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "question-prompt-lists organizes QPL sets along two axes: journey stage (the row) and topic (the column). Without a clinician-validated controlled vocabulary for these axes, every set will use ad-hoc terms, making cross-set navigation and CI structural checks impossible. The taxonomy must use plain, generic staging terms (no AJCC tables) and be validated by a credentialed clinician before any set is authored. It will underpin the qplSetSchema content schema added in qpl-schema-001 and is referenced by every downstream QPL set.",
+  "objective": "Define and export two YAML controlled-vocabulary files — taxonomy/journey-stages.yaml and taxonomy/topics.yaml — that enumerate the allowed stage and topic slug values, with human-readable labels and brief definitions, validated by a clinician for clinical sensibility and conforming to the taxonomySchema added in qpl-schema-001.",
+  "acceptanceCriteria": [
+    "taxonomy/journey-stages.yaml enumerates all required journey stages from the PLAN scope section using plain, generic vocabulary (no AJCC tables): newly-diagnosed, staging-workup, treatment-decision, on-treatment, managing-side-effects, clinical-trials, genetics-hereditary, second-opinion, cost-financial, fertility-preservation, survivorship, recurrence, palliative-supportive, end-of-life",
+    "taxonomy/topics.yaml enumerates the cross-cutting topic themes (diagnosis-understanding, treatment-options, risks-benefits, side-effects, prognosis-discussion, supportive-care, logistics-cost, family-genetics, clinical-trials, second-opinion, survivorship-wellness, palliative-end-of-life) each with a slug, label, and brief definition",
+    "Both files validate against taxonomySchema in CI (structural check added by qpl-schema-001)",
+    "At least one credentialed oncology clinician has reviewed and signed off on the controlled vocabulary for clinical sensibility and completeness; sign-off recorded in the PR",
+    "A short README in taxonomy/ explains the axes, the plain-vs-clinical-staging distinction, and how QPL set authors should select stages and topics"
+  ],
+  "resources": [
+    "PLAN.md (Scope section — journey stage and topic definitions)",
+    "TASKS.md (M0 table and M0 acceptance criteria for qpl-taxonomy-001)",
+    "qpl-schema-001 (taxonomySchema definition — must be authored in parallel or first)"
+  ],
+  "output": "taxonomy/journey-stages.yaml, taxonomy/topics.yaml, taxonomy/README.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

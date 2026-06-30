@@ -1,0 +1,35 @@
+{
+  "id": "qpl-runbook-001",
+  "title": "End-to-end pipeline runbook",
+  "project": "question-prompt-lists",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["cancer", "patient-education", "oncology", "governance", "documentation"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "By end of M1, the pipeline has six moving parts: allow-list, taxonomy, schema/CI, style guide, review rubric, and automated checks. A new contributor (human or agent) pulling a QPL authoring task needs to understand the full end-to-end sequence — what to do, in what order, with which artifacts — without reading every plan document. The runbook is the single authoritative how-to reference for authoring and shipping a QPL set. It also defines the maintenance cycle (re-review cadence, source-drift response) and the de-listing procedure.",
+  "objective": "Write docs/runbook.md — a step-by-step end-to-end pipeline runbook covering: (1) selecting a topic x stage cell; (2) verifying and using allow-listed sources; (3) authoring original questions per the style guide with UNCERTAIN: flags; (4) running local CI checks before PR; (5) handing off to reviewers using the reviewer-handoff template; (6) resolving UNCERTAIN: flags and reviewer feedback; (7) final CI gates before merge; (8) maintenance cycle (nextReviewDue, source-drift response, withdrawal procedure).",
+  "acceptanceCriteria": [
+    "docs/runbook.md covers all 8 pipeline stages listed in the objective, in order, with enough specificity that a first-time contributor can execute each step without reading PLAN.md",
+    "The runbook references the correct artifact path for each tool: sources/allow-list.yaml, taxonomy/ files, templates/style-guide.md, templates/review-rubric.md, templates/reviewer-handoff.md, support/resources.yaml, scripts/ checks",
+    "The runbook includes the commands to run local CI checks (pnpm test and the relevant scripts) and what a passing vs failing output looks like",
+    "The runbook includes a Maintenance cycle section explaining: checking nextReviewDue, responding to source-drift alerts from the watcher, and the withdrawal-or-re-review procedure when a source license or clinical guideline changes",
+    "The runbook is concise (under 2500 words), written in plain language, and is itself consistent with the style guide it references",
+    "Maintainer has reviewed and approved the runbook before merge"
+  ],
+  "resources": [
+    "PLAN.md (Solution approach — Pipeline; Quality gates; Sustainability)",
+    "TASKS.md (qpl-runbook-001 row)",
+    "templates/style-guide.md (qpl-style-001)",
+    "templates/review-rubric.md (qpl-rubric-001)",
+    "sets/newly-diagnosed/general/set.yaml (qpl-set-001 — reference worked example)"
+  ],
+  "output": "docs/runbook.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC BY 4.0"
+}

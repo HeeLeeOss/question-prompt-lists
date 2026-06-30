@@ -1,0 +1,34 @@
+{
+  "id": "qpl-watcher-001",
+  "title": "Minimal source-change re-fetch check (hash-diff) [automated in M1]",
+  "project": "question-prompt-lists",
+  "type": "code",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["cancer", "patient-education", "tooling", "ci-cd", "content-integrity"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Clinical guidance changes. A QPL set grounded in NCI/PDQ content that was accurate when authored may become misleading if the source page is silently updated. The source allow-list (qpl-sources-001) records snapshotHash (SHA-256) values for each source; the watcher re-fetches those sources and compares the current hash to the recorded one, flagging any drift for re-verification. M0 requires only a minimal, manually-run script; M1 (qpl-watcher-002) will schedule it. This is a safety feature, not a nice-to-have: undetected source drift is listed as a high-impact risk in the PLAN.",
+  "objective": "Write scripts/check-sources.ts (or similar) — a minimal, manually-run script that reads sources/allow-list.yaml, re-fetches each source at its canonical URL, computes the SHA-256 of the response, and compares it to the recorded snapshotHash; prints a DRIFT report for any entry where the hash differs and exits non-zero if any drift is detected. Wire it into the repo so a maintainer can run it with a single command.",
+  "acceptanceCriteria": [
+    "scripts/check-sources.ts (or equivalent) is present and reads all entries from sources/allow-list.yaml",
+    "For each entry, the script fetches the canonical URL, computes SHA-256 of the response body, and compares it to the recorded snapshotHash field; outputs MATCH or DRIFT per entry",
+    "The script exits non-zero and prints a clear DRIFT DETECTED summary if any source hash differs from the recorded value; prints ALL SOURCES MATCH if none differ",
+    "The script handles network errors gracefully (prints FETCH-ERROR per entry, does not crash; exits non-zero if any entry could not be checked)",
+    "A one-line run instruction is added to CONTRIBUTING.md or the repo README so the maintainer knows how to run it",
+    "The script does not commit or overwrite snapshotHash values automatically — it only reports; re-verification and hash update are a manual maintainer step",
+    "pnpm build and pnpm test pass after this change"
+  ],
+  "resources": [
+    "sources/allow-list.yaml (qpl-sources-001 — must exist first)",
+    "packages/schema/src/schemas.ts (qpl-schema-001 — sourceAllowListSchema defines the YAML shape)",
+    "PLAN.md (Source-change check; Security section; Risk row for 'Outdated guidance')"
+  ],
+  "output": "scripts/check-sources.ts (or equivalent); updated CONTRIBUTING.md or README with run instruction; PR to the repo",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

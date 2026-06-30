@@ -1,0 +1,33 @@
+{
+  "id": "qpl-style-001",
+  "title": "Question-writing style guide (questions-not-answers, neutral, plain-language, provenance, sensitive content)",
+  "project": "question-prompt-lists",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["cancer", "patient-education", "oncology", "health-communication", "plain-language"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Every QPL set must be authored to the same bar: questions not answers, neutral and non-leading framing, plain language at the target reading level, provenance on every framing claim, and careful handling of sensitive content (prognosis, end-of-life, fertility, genetics, cost). Without a shared style guide, different authors and reviewers will apply inconsistent standards, and agents will not know what guardrails to emit UNCERTAIN: flags for. The style guide is a prerequisite for the review rubric (qpl-rubric-001) and for authoring the pilot set (qpl-set-001).",
+  "objective": "Write templates/style-guide.md — a concrete, actionable style guide for QPL question authoring covering: the questions-not-answers principle; neutrality and non-leading framing rules; plain-language target (reading level, vocabulary, sentence length); provenance requirements (every framing claim must cite an allow-listed source); sensitive content handling (prognosis/end-of-life/fertility/genetics/cost) including the mandatory verified support resource requirement; the UNCERTAIN: flag protocol for agents; the verbatim not-medical-advice disclaimer; and copyright / original-authorship rules (no copying from copyrighted QPLs).",
+  "acceptanceCriteria": [
+    "templates/style-guide.md is present and covers all required sections: questions-not-answers principle, neutrality/non-leading framing, plain-language target (specific reading-level goal), provenance rules, sensitive-content handling (list each sensitivity type), UNCERTAIN: flag protocol, verbatim disclaimer text, and copyright/original-authorship rules",
+    "The style guide defines the UNCERTAIN: flag format exactly: UNCERTAIN: <location> | <type: claim|leading|advice-risk|sensitivity|source|ambiguous> | <note>",
+    "The verbatim disclaimer is quoted exactly: 'This is education, not medical advice — always consult your own care team'",
+    "At least one credentialed oncology clinician and one patient advocate have reviewed and signed off on the style guide; sign-off recorded in the PR",
+    "The guide is written in plain language itself, consistent with the standard it prescribes, and is short enough to be read in full by a contributing agent (under 2000 words)"
+  ],
+  "resources": [
+    "PLAN.md (Quality, review and risk gates; Goals; Data/licensing sections)",
+    "TASKS.md (qpl-style-001 row; qpl-set-001 AC — style guide is a prerequisite)",
+    "qpl-sources-001 (allow-list — provenance rules reference allow-listed sources)",
+    "QPL communication research (evidence for question-asking as intervention)"
+  ],
+  "output": "templates/style-guide.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC BY 4.0"
+}

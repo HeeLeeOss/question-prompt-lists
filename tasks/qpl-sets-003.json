@@ -1,0 +1,37 @@
+{
+  "id": "qpl-sets-003",
+  "title": "Author partner-priority set(s) for agreed population/stage",
+  "project": "question-prompt-lists",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": ["cancer", "patient-education", "oncology", "health-communication", "plain-language"],
+  "riskTier": "high",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "large",
+  "status": "open",
+  "context": "Once a partner is secured (qpl-partner-001) and their population/stage/topic priorities are agreed, this task authors the QPL set(s) specifically requested by the partner. These are the sets that will be given to patients — the first true 'shipped' deliverables. The authoring process is identical to previous sets (style guide, allow-listed sources, provenance, UNCERTAIN: flags, disclaimer, support resources, dual sign-off) but is now scoped to the partner's stated priorities rather than general high-impact stages. All automated CI gates (qpl-a11y-001, qpl-license-001) must be green before reviewer handoff.",
+  "objective": "Author one or more original QPL sets tailored to the partner's agreed patient population, journey stage(s), and topic priorities; apply the full pipeline (allow-listed sources, provenance, style guide, dual expert sign-off, automated CI gates); deliver sets ready for partner distribution.",
+  "acceptanceCriteria": [
+    "At least one new QPL set file is present in sets/<stage>/<topic-or-general>/set.yaml, scoped to the partner's agreed population and journey stage(s) from docs/partner-brief.md",
+    "The set is original (original-authorship attestation present, no copyrighted QPL copied), grounded in allow-listed sources, with provenance on all framing claims",
+    "The verbatim disclaimer is present; verified support resources are referenced from support/resources.yaml",
+    "All UNCERTAIN: flags resolved before sign-off; dual expert sign-off recorded (clinician + advocate, each with COI declaration) in the review block and PR",
+    "All automated CI gates pass: schema validation (qpl-schema-001), license/provenance enforcement (qpl-license-001), readability/accessibility checks (qpl-a11y-001)",
+    "Sets are formatted for partner distribution (plain text, printable Markdown, or agreed format); Steward confirms sets are ready to hand to the partner"
+  ],
+  "resources": [
+    "docs/partner-brief.md (qpl-partner-001 — population, stage, topics, distribution format)",
+    "sources/allow-list.yaml (qpl-sources-001)",
+    "taxonomy/journey-stages.yaml, taxonomy/topics.yaml (qpl-taxonomy-001)",
+    "templates/style-guide.md (qpl-style-001)",
+    "templates/review-rubric.md, templates/reviewer-handoff.md (qpl-rubric-001)",
+    "support/resources.yaml (qpl-support-001)",
+    "sets/newly-diagnosed/general/set.yaml (qpl-set-001 — reference implementation)"
+  ],
+  "output": "sets/<partner-stage>/<topic>/set.yaml (one or more files per partner brief); formatted distribution artifacts",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC BY 4.0"
+}

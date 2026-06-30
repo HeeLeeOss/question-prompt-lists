@@ -1,0 +1,33 @@
+{
+  "id": "qpl-refresh-001",
+  "title": "Review-refresh cadence + stale-set auto-flagging + withdrawal procedure",
+  "project": "question-prompt-lists",
+  "type": "maintenance",
+  "lane": "donated",
+  "priority": "low",
+  "domain": ["cancer", "patient-education", "tooling", "governance", "content-integrity"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Clinical guidelines change. A QPL set that was accurate at publication can become misleading if oncology practice evolves. Every published set has a nextReviewDue date (enforced by qpl-license-001); this task establishes the cadence, automates the flagging, and defines what happens when a set is overdue or when a source license changes. Without a documented process and automation, re-review will be forgotten and stale sets will remain in circulation. The auto-flagging mechanism is a CI/script check; withdrawal/under-re-review status must be machine-readable so partners can be notified.",
+  "objective": "Document the review-refresh cadence policy and implement auto-flagging of sets past nextReviewDue: extend the CI checks to flag (and optionally open an issue for) sets where nextReviewDue is in the past; define and document the withdrawal and under-re-review procedure for when guidance or a source license changes.",
+  "acceptanceCriteria": [
+    "docs/refresh-policy.md documents: the standard review cadence (<=12 months or on guideline/source-license change), who is responsible for scheduling re-reviews, how the re-review is triggered (watcher alert, maintainer check, partner report), and the escalation path if the appropriate reviewer is unavailable",
+    "The CI check (extended from qpl-license-001) or a scheduled GitHub Actions job automatically flags any published set where nextReviewDue is in the past, outputting a STALE SETS report listing the affected sets and their overdue dates",
+    "A stale set causes CI to exit non-zero (or the scheduled job to open a GitHub issue) so the maintainer is notified without having to manually audit nextReviewDue dates",
+    "docs/refresh-policy.md defines the withdrawal procedure: when to mark a set status: withdrawn or status: under-re-review, how to notify the partner, and how to restore to published after re-review; withdrawal is reversible and the procedure is recorded in the set's YAML",
+    "The auto-flagging logic is tested against a synthetic stale set (a test fixture with a past nextReviewDue) that triggers the flag; the test is wired into pnpm test"
+  ],
+  "resources": [
+    "PLAN.md (Sustainability section; nextReviewDue; Risks row for 'Outdated guidance'; M3 exit criteria)",
+    "TASKS.md (qpl-refresh-001 row and AC)",
+    "scripts/check-content.ts (qpl-license-001 — extend here)",
+    "sets/newly-diagnosed/general/set.yaml (qpl-set-001 — first real nextReviewDue date to test against)"
+  ],
+  "output": "docs/refresh-policy.md; extended CI check or scheduled GitHub Actions job for stale-set auto-flagging; PR",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC BY 4.0"
+}

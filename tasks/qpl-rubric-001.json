@@ -1,0 +1,33 @@
+{
+  "id": "qpl-rubric-001",
+  "title": "Expert-review rubric + reviewer-handoff template (dual sign-off, COI, conflict resolution)",
+  "project": "question-prompt-lists",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["cancer", "patient-education", "oncology", "expert-review", "governance"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Dual expert sign-off (oncology clinician + patient advocate) is a hard blocking gate for every patient-facing QPL set. Without a shared rubric, reviewers apply different criteria, sign-offs lack evidentiary structure, and conflict resolution has no agreed procedure. A reviewer-handoff template ensures each reviewer receives the same package (draft set, agent UNCERTAIN: flags, provenance list, COI declaration form) and returns the same artifacts. This rubric is also needed to onboard and align reviewers recruited in qpl-reviewers-001.",
+  "objective": "Write templates/review-rubric.md and templates/reviewer-handoff.md. The rubric defines the exact checklist each reviewer applies (clinician: clinical accuracy, no advice/prognosis, no leading framing, missing critical question; advocate: plain language, tone, sensitivity, cultural appropriateness, support resources); COI declaration requirements; and the conflict-resolution procedure. The handoff template is the package sent to each reviewer for a specific set.",
+  "acceptanceCriteria": [
+    "templates/review-rubric.md contains distinct checklist sections for (a) clinician review and (b) patient-advocate review, each with specific, checkable items derived from the PLAN quality gates",
+    "The rubric specifies: COI declaration required from each reviewer; reviewer independence rule (drafter may not be sole reviewer); topic-appropriate reviewer requirement for sensitive sets (palliative for end-of-life, genetic counsellor for hereditary); conflict-resolution procedure ending with 'conservative reading wins'",
+    "The rubric states explicitly: no sign-off may be recorded while any UNCERTAIN: flag in the set's review.agentFlags is unresolved",
+    "templates/reviewer-handoff.md is a fill-in template that packages (set file path, agent flags list, provenance list, style guide reference, rubric reference, COI declaration block, sign-off block with date + reviewer name + credentials + COI statement)",
+    "At least one credentialed oncology clinician and one patient advocate have reviewed and approved the rubric and handoff template; sign-off recorded in the PR",
+    "Both files are concise enough for a reviewer to read in a single sitting (rubric under 1500 words; handoff template under 500 words)"
+  ],
+  "resources": [
+    "PLAN.md (Quality, review and risk gates section; Reviewer independence; Conflict resolution; Agent uncertainty self-check)",
+    "TASKS.md (qpl-rubric-001 row; qpl-reviewers-001 AC)",
+    "templates/style-guide.md (qpl-style-001 — rubric depends on style guide being finalized first)"
+  ],
+  "output": "templates/review-rubric.md, templates/reviewer-handoff.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC BY 4.0"
+}

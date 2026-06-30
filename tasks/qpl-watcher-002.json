@@ -1,0 +1,34 @@
+{
+  "id": "qpl-watcher-002",
+  "title": "Automate source-change watcher (scheduled hash-diff vs snapshots)",
+  "project": "question-prompt-lists",
+  "type": "code",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["cancer", "patient-education", "tooling", "ci-cd", "content-integrity"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "The M0 manual watcher (qpl-watcher-001) must be run deliberately by the maintainer. Clinical guidance changes on unpredictable schedules; a manual process will be forgotten. M1 automates the watcher on a schedule (e.g., weekly via GitHub Actions cron) so drift is detected reliably and the maintainer is notified without having to remember to run the check. When drift is detected, the automated run must open an issue or post a notification — never silently update snapshotHash values, which would defeat the audit trail.",
+  "objective": "Wire the check-sources script (qpl-watcher-001) into a scheduled GitHub Actions workflow (or equivalent) that runs on a weekly cron, reports MATCH or DRIFT per source, and on any DRIFT detection automatically opens a GitHub issue (or equivalent notification) flagging the affected source(s) for maintainer re-verification. The workflow must never commit or modify snapshotHash values automatically.",
+  "acceptanceCriteria": [
+    ".github/workflows/source-watcher.yml (or equivalent) is present and wires the check-sources script on a scheduled cron (at minimum weekly)",
+    "On DRIFT detection, the workflow opens a GitHub issue titled 'Source drift detected: <source name(s)>' with the list of drifted sources and instructions for the maintainer to re-verify and update the allow-list",
+    "The workflow never commits or automatically updates snapshotHash values; all updates are manual and require a PR",
+    "The workflow runs on a push trigger as well (to verify the watcher itself is working on every PR)",
+    "A NETWORK-ERROR on fetching any source causes the workflow to flag that source as 'unverifiable this run' and does not overwrite its existing hash; maintainer is still notified",
+    "pnpm build && pnpm test pass; the workflow YAML is valid"
+  ],
+  "resources": [
+    "PLAN.md (Source-change check; Security section — supply chain / hash-archive snapshots)",
+    "TASKS.md (qpl-watcher-002 row)",
+    "scripts/check-sources.ts (qpl-watcher-001 — this is the script being scheduled)",
+    "sources/allow-list.yaml (qpl-sources-001)"
+  ],
+  "output": ".github/workflows/source-watcher.yml; PR",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

@@ -1,0 +1,39 @@
+{
+  "id": "qpl-sets-002",
+  "title": "Author 3-4 more general sets across >=3 journey stages",
+  "project": "question-prompt-lists",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["cancer", "patient-education", "oncology", "health-communication", "plain-language"],
+  "riskTier": "high",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "large",
+  "status": "open",
+  "context": "M0 proves the pipeline with one pilot set (qpl-set-001). M1 builds repeatability by authoring 3-4 additional general-purpose QPL sets spanning at least 3 distinct journey stages. These sets deepen the coverage matrix, generate enough throughput to stress-test the review pipeline and rotation, and demonstrate that the quality bar is reproducible. Each set follows exactly the same authoring and dual sign-off process as the pilot. High-impact, high-uncertainty stages not covered by the pilot (treatment-decision, clinical-trials, managing-side-effects) are prioritized. All sets remain general (not cancer-type-specific, which comes in M3). None are shipped until dual-signed-off and CI-green.",
+  "objective": "Author 3 to 4 additional original QPL sets covering at least 3 distinct journey stages from the taxonomy (e.g., treatment-decision, managing-side-effects, clinical-trials, survivorship), each following the full M0 pipeline: style guide, allow-listed sources, provenance, UNCERTAIN: flags resolved, disclaimer, verified support resources, dual expert sign-off, readability/a11y checks, and CI-green.",
+  "acceptanceCriteria": [
+    "Between 3 and 4 new general QPL set files are present in sets/<stage>/general/set.yaml, each validating against qplSetSchema",
+    "Sets collectively cover at least 3 distinct journey stages from taxonomy/journey-stages.yaml, none of which is newly-diagnosed (already covered by qpl-set-001)",
+    "Each set is original (original-authorship attestation present, no copyrighted QPL copied), grounded in allow-listed sources, with provenance on all framing claims",
+    "Each set contains the verbatim disclaimer and verified support resources from support/resources.yaml",
+    "Each set has been independently dual-signed-off: one credentialed oncology clinician + one trained patient advocate, with COI declarations, recorded in the review block and PR; all UNCERTAIN: flags resolved before sign-off",
+    "Any set touching end-of-life, prognosis, fertility, or genetics has the topic-appropriate credentialed reviewer (palliative-care, genetic counsellor) — not just a general oncologist",
+    "All sets pass CI structural checks (qpl-schema-001/qpl-license-001), readability/accessibility checks (qpl-a11y-001), and license/provenance enforcement (qpl-license-001)",
+    "Coverage matrix in the repo is updated to reflect the new cells"
+  ],
+  "resources": [
+    "sets/newly-diagnosed/general/set.yaml (qpl-set-001 — reference implementation)",
+    "sources/allow-list.yaml (qpl-sources-001)",
+    "taxonomy/journey-stages.yaml, taxonomy/topics.yaml (qpl-taxonomy-001)",
+    "templates/style-guide.md (qpl-style-001)",
+    "templates/review-rubric.md, templates/reviewer-handoff.md (qpl-rubric-001)",
+    "support/resources.yaml (qpl-support-001)",
+    "docs/reviewer-onboarding-summary.md (qpl-reviewers-001)"
+  ],
+  "output": "3-4 new sets/<stage>/general/set.yaml files, each with dual sign-off block; updated coverage matrix",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC BY 4.0"
+}

@@ -1,0 +1,39 @@
+{
+  "id": "qpl-sets-004",
+  "title": "Cancer-type-specific sets (topic-appropriate reviewers)",
+  "project": "question-prompt-lists",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "low",
+  "domain": ["cancer", "patient-education", "oncology", "health-communication", "plain-language"],
+  "riskTier": "high",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "large",
+  "status": "open",
+  "context": "General QPL sets (M0/M1/M2) cover questions relevant to most cancer patients. M3 adds cancer-type-specific sets (e.g., breast, lung, colorectal, sarcoma) that include questions specific to that cancer's staging, treatment landscape, and patient concerns. These require topic-appropriate credentialed reviewers: a lung oncologist for a lung-cancer set, a surgical oncologist for a colorectal set, etc. A general oncologist is insufficient for type-specific clinical accuracy. Sets are scoped by the partner's stated priorities and the available reviewer coverage; no type-specific set is published without the appropriate reviewer.",
+  "objective": "Author at least one cancer-type-specific QPL set (e.g., breast cancer — newly-diagnosed, or lung cancer — treatment-decision) with a topic-appropriate credentialed reviewer (specialty oncologist for that cancer type) plus a patient advocate, passing the full pipeline: allow-listed sources, provenance, style guide, dual sign-off, automated CI gates, disclaimer, support resources.",
+  "acceptanceCriteria": [
+    "At least one cancer-type-specific QPL set is present in sets/<stage>/<cancer-type>/set.yaml, validating against qplSetSchema; the appliesTo field lists the specific cancer type (not 'general')",
+    "The set has a topic-appropriate specialty clinician reviewer (not just a general oncologist): credentials must be relevant to the specific cancer type; credentials verified and recorded in the review block",
+    "The set is original (original-authorship attestation present), grounded in allow-listed sources with provenance on all claims, containing the verbatim disclaimer and verified support resources",
+    "All UNCERTAIN: flags resolved before sign-off; dual expert sign-off (specialty clinician + patient advocate, each with COI declaration) recorded in review block and PR",
+    "All automated CI gates pass: schema validation, license/provenance enforcement, readability/accessibility checks",
+    "The type-specific set does not duplicate questions already in the general set for the same stage; it adds questions specific to the cancer type's staging, treatment options, or patient concerns",
+    "Coverage matrix is updated to reflect the new type-specific cell"
+  ],
+  "resources": [
+    "sets/newly-diagnosed/general/set.yaml (qpl-set-001 — reference; avoid duplication)",
+    "sources/allow-list.yaml (qpl-sources-001)",
+    "taxonomy/journey-stages.yaml, taxonomy/topics.yaml (qpl-taxonomy-001)",
+    "templates/style-guide.md (qpl-style-001)",
+    "templates/review-rubric.md, templates/reviewer-handoff.md (qpl-rubric-001)",
+    "support/resources.yaml (qpl-support-001)",
+    "docs/partner-brief.md (qpl-partner-001 — partner priorities may specify cancer type)",
+    "NCI / Cancer.gov / PDQ cancer-type-specific patient pages (public domain; allow-listed)"
+  ],
+  "output": "sets/<stage>/<cancer-type>/set.yaml with dual expert sign-off block; updated coverage matrix",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC BY 4.0"
+}

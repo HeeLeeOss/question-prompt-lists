@@ -1,0 +1,34 @@
+{
+  "id": "qpl-schema-001",
+  "title": "QPL content schemas + minimal CI structural check",
+  "project": "question-prompt-lists",
+  "type": "code",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["cancer", "patient-education", "oncology", "tooling"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "question-prompt-lists enforces safety and quality via machine-checkable schema constraints, not just prose policy. The Elyos schema package (packages/schema/src/schemas.ts) already exports taskSchema and registrySchema; this task extends it with content schemas for QPL artifacts. The structural CI check is the last line of machine defense before expert review: it must reject any set file that is missing the mandatory disclaimer, missing provenance on a flagged assertion, missing the dual review sign-off block, missing a nextReviewDue date, or (for sensitive topics) missing verified support resources. These checks run on every PR so reviewers never receive an artifact that fails the mechanical gates.",
+  "objective": "Add qplSetSchema, qplQuestionSchema, sourceAllowListSchema, taxonomySchema, supportResourceSchema, and reviewSchema to packages/schema/src/schemas.ts (and re-export from index), then wire a structural-check script (run via pnpm test) that parses every YAML artifact in sets/, sources/, taxonomy/, and support/ to JSON and fails CI on missing required fields.",
+  "acceptanceCriteria": [
+    "packages/schema/src/schemas.ts exports qplSetSchema, qplQuestionSchema, sourceAllowListSchema, taxonomySchema, supportResourceSchema, and reviewSchema, each with additionalProperties:false and all required fields from the PLAN data model section",
+    "qplSetSchema enforces: disclaimer field (non-empty string), provenance array (minItems:1), review object with clinician and advocate sign-off sub-fields, nextReviewDue date string, and supportResources array required when any question has a sensitivity field",
+    "qplQuestionSchema enforces: no answer, recommendation, or prognosis field (additionalProperties:false excludes them); required id, text, topic, provenanceRefs",
+    "A structural-check script (scripts/check-content.ts or similar) is wired into pnpm test; it validates all YAML files in sets/, sources/, taxonomy/, support/ against their respective schemas and exits non-zero on any failure",
+    "pnpm build && pnpm test pass on a green repo state with the seed allow-list and taxonomy files present",
+    "PR includes a brief comment explaining each schema and the CI gate behavior"
+  ],
+  "resources": [
+    "packages/schema/src/schemas.ts (existing taskSchema for style reference)",
+    "PLAN.md (Solution approach — data model, Artifacts section)",
+    "TASKS.md (qpl-schema-001 row; CI gate requirements from qpl-license-001 AC)",
+    "qpl-taxonomy-001 (taxonomySchema must match the vocabulary files produced there)"
+  ],
+  "output": "Modified packages/schema/src/schemas.ts with six new exported schemas; scripts/check-content.ts (or equivalent); updated pnpm test wiring; PR to packages/schema",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}
