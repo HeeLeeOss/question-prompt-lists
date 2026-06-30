@@ -1,0 +1,43 @@
+{
+  "id": "qpl-set-001",
+  "title": "Pilot set: Newly diagnosed - questions for your first oncology appointment (general)",
+  "project": "question-prompt-lists",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["cancer", "patient-education", "oncology", "health-communication", "plain-language"],
+  "riskTier": "high",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "This is the pilot QPL set that proves the M0 pipeline end-to-end. It targets patients who have just received a cancer diagnosis and are preparing for their first oncology appointment — the highest-stakes, highest-uncertainty decision point in the cancer journey, where patients are most overwhelmed and most benefit from structured question support. The set must be original (no copyrighted QPL copied), grounded in allow-listed sources (NCI/PDQ and aggregate statistics only), and subjected to the full dual expert sign-off process established by qpl-rubric-001. Because no partner is secured, verifiedNeed is false and adoption is deferred to M2; 'done' for M0 means dual-signed-off and merged, not adopted. This is a high-risk task: patient-facing health content. No shortcuts.",
+  "objective": "Author sets/newly-diagnosed/general/set.yaml — an original QPL set of questions for a newly-diagnosed patient's first oncology appointment, organized by topic, with neutral non-leading framing, the verbatim disclaimer, provenance on all framing claims, verified support resources, and the dual expert sign-off block — passing all CI structural checks and readability/accessibility gates before merge.",
+  "acceptanceCriteria": [
+    "sets/newly-diagnosed/general/set.yaml is present and validates against qplSetSchema; questions are grouped by topic (at minimum: understanding the diagnosis, treatment options, the care team, next steps/logistics)",
+    "The file contains the verbatim disclaimer: 'This is education, not medical advice — always consult your own care team'",
+    "Every framing claim in introFraming or question rationale has a provenanceRefs entry citing an allow-listed source from sources/allow-list.yaml; no assertion is made without provenance",
+    "The set contains no answers, recommendations, prognoses, or interpretations of the patient's situation; questions are neutral and non-leading (not 'Shouldn't I get chemotherapy?' but 'What treatment options are being considered for my diagnosis?')",
+    "An original-authorship attestation is present in the set file confirming no copyrighted QPL (ACS, ASCO/Cancer.Net, NCCN, Macmillan, CRUK, ESMO) was copied or recompiled",
+    "All agent UNCERTAIN: flags are captured in review.agentFlags; no sign-off is recorded while any flag is unresolved; each flag is resolved or accepted-as-is with reasoning before merge",
+    "A credentialed oncology clinician has signed off (name, credentials, COI declaration, date) recorded in the review block and PR — confirming clinical accuracy, appropriateness for stage, no embedded advice, no leading framing, no missing critical question",
+    "A trained patient advocate has signed off (name, credentials, COI declaration, date) recorded in the review block and PR — confirming plain language, tone, sensitivity, patient-centredness, and presence of support resources",
+    "Verified support resources from support/resources.yaml are referenced in the set (the newly-diagnosed stage involves distress and uncertainty; support resources are required)",
+    "Readability and accessibility checks pass (reading level at or below target from style guide; accessibility linting if available); lastReviewedDate and nextReviewDue (<=12 months out) are set",
+    "CI structural check (from qpl-schema-001) is green"
+  ],
+  "resources": [
+    "sources/allow-list.yaml (qpl-sources-001 — must exist and be verified first)",
+    "taxonomy/journey-stages.yaml, taxonomy/topics.yaml (qpl-taxonomy-001)",
+    "templates/style-guide.md (qpl-style-001)",
+    "templates/review-rubric.md, templates/reviewer-handoff.md (qpl-rubric-001)",
+    "support/resources.yaml (qpl-support-001)",
+    "docs/reviewer-onboarding-summary.md (qpl-reviewers-001 — reviewers must be onboarded)",
+    "NCI / Cancer.gov / PDQ newly-diagnosed patient information (public domain; allow-listed)",
+    "QPL communication research — evidence base for newly-diagnosed question sets"
+  ],
+  "output": "sets/newly-diagnosed/general/set.yaml with dual expert sign-off block",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC BY 4.0"
+}

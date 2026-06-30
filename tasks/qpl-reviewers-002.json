@@ -1,0 +1,34 @@
+{
+  "id": "qpl-reviewers-002",
+  "title": "Grow reviewer panel to >=4 (specialty mix) + rotation",
+  "project": "question-prompt-lists",
+  "type": "research",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["cancer", "patient-education", "oncology", "expert-review", "governance"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "M0 proves the pipeline with a minimum of one clinician and one advocate (qpl-reviewers-001). M1 scales to a panel of at least four reviewers to avoid single-reviewer dependence, enable load balancing, and bring specialty diversity (oncology sub-specialties for genetics, palliative, paediatric sets). Without a rotation and load-balancing procedure, the review gate becomes a bottleneck as the set volume grows in M1. Naming a Steward is also a prerequisite for entering M2; that responsibility is tracked here as it aligns with the panel buildout. A Steward or reviewing partner org can substitute for the numeric panel target.",
+  "objective": "Expand the reviewer panel to at least 4 people (>=2 credentialed oncology clinicians across relevant specialties + >=2 trained patient advocates), or secure a reviewing partner organization that provides equivalent coverage; document a rotation and load-balancing procedure and a conflict-escalation path; name a Steward by end of M1.",
+  "acceptanceCriteria": [
+    "Reviewer panel reaches >=4 individuals (>=2 clinicians across relevant specialties + >=2 advocates), OR a reviewing partner organization is engaged and committed in writing to provide equivalent dual-discipline coverage",
+    "Topic-appropriate specialty coverage is documented: which reviewer(s) cover palliative/end-of-life, genetics/hereditary, and paediatric/AYA topics; confirms no sensitive set will be published without the appropriate reviewer",
+    "A rotation and load-balancing procedure is documented: how review assignments are made, maximum concurrent reviews per reviewer, and how urgent re-reviews (on source drift or guideline change) are handled",
+    "A conflict-escalation path is documented: who is the second clinician or escalation point when clinician and advocate disagree and cannot reconcile",
+    "A Steward is named by end of M1: name and contact recorded out-of-band; role (owns partner relationship, confirms adoption) documented in-repo",
+    "Updated docs/reviewer-onboarding-summary.md reflects the expanded panel (without PII) and the rotation/escalation procedure"
+  ],
+  "resources": [
+    "PLAN.md (Governance section; Reviewer independence; M1 exit criteria; Open question #1)",
+    "TASKS.md (qpl-reviewers-002 row and AC; M1 Definition of Done)",
+    "docs/reviewer-onboarding-summary.md (qpl-reviewers-001 — baseline to expand)",
+    "templates/review-rubric.md (qpl-rubric-001)"
+  ],
+  "output": "Updated docs/reviewer-onboarding-summary.md with expanded panel summary, rotation procedure, escalation path, and Steward designation (no PII in-repo)",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC BY 4.0"
+}

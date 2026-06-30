@@ -1,0 +1,33 @@
+{
+  "id": "qpl-outcomes-001",
+  "title": "Outcome tracking: post-publication defect + partner-feedback log + coverage matrix",
+  "project": "question-prompt-lists",
+  "type": "data",
+  "lane": "donated",
+  "priority": "low",
+  "domain": ["cancer", "patient-education", "oncology", "quality", "governance"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "dataset",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "The project's success metrics are outcome-based, not vanity-metric-based: zero critical defects post-publication, sets actually adopted and given to patients, sets within their review window. Tracking these requires structured artifacts: a post-publication defect log (any embedded advice, factual error, leading question, or missing disclaimer found after merge), a partner-feedback log (aggregate summaries only — no PII), and a coverage matrix (topic x stage cells filled, by review status and currency). These are referenced in the PLAN success metrics table and are a M3 exit criterion.",
+  "objective": "Create and populate three tracking artifacts: (1) docs/defect-log.yaml — a structured log of post-publication content defects; (2) docs/feedback-log.yaml — a log of aggregate partner feedback summaries (no PII); (3) docs/coverage-matrix.md — a topic x journey-stage grid showing which cells have a published, dual-signed-off, adopted set and whether each is within its review window.",
+  "acceptanceCriteria": [
+    "docs/defect-log.yaml is present with a defined schema (id, setId, discoveredDate, defectType: embedded-advice|factual-error|leading-question|missing-disclaimer|other, description, resolution, resolvedDate) and validates against a defectLogSchema or is self-documented; it is empty at creation (no defects found yet) and ready to receive entries",
+    "docs/feedback-log.yaml is present with a defined schema (id, setId, partnerName, feedbackDate, summary, usefulness: positive|negative|mixed|unknown, notes) — no PII fields; it is empty at creation and ready to receive aggregate entries",
+    "docs/coverage-matrix.md is present and shows all journey stages (rows) x topic categories (columns) as a Markdown table; each cell shows: empty, draft, dual-signed-off, adopted, or adopted+within-window; the table is populated with the current state of all published sets",
+    "All three artifacts are referenced from the repo README as the outcome-tracking data",
+    "A brief maintenance note explains how to add entries to each artifact and who is responsible (Steward for adoption/feedback; Maintainer for defects)"
+  ],
+  "resources": [
+    "PLAN.md (Success metrics table; Sustainability — outcome tracking; M3 exit criteria)",
+    "TASKS.md (qpl-outcomes-001 row)",
+    "taxonomy/journey-stages.yaml, taxonomy/topics.yaml (qpl-taxonomy-001 — axes for the coverage matrix)",
+    "sets/ directory (all published set files — source of coverage matrix data)"
+  ],
+  "output": "docs/defect-log.yaml, docs/feedback-log.yaml, docs/coverage-matrix.md; updated README",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

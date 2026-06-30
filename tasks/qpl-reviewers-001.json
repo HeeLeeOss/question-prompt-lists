@@ -1,0 +1,33 @@
+{
+  "id": "qpl-reviewers-001",
+  "title": "Recruit + onboard >=1 oncology clinician + >=1 patient advocate (COI)",
+  "project": "question-prompt-lists",
+  "type": "research",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["cancer", "patient-education", "oncology", "expert-review", "governance"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "No patient-facing QPL set may ship without credentialed sign-off from both a clinician and a patient advocate. As of this draft, no reviewer is committed. This is an equally blocking dependency to securing a partner: without reviewers, M0's pilot set cannot reach 'done' even if it is authored. The maintainer must identify, contact, and onboard at least one credentialed oncology clinician and one trained patient advocate, each with a recorded COI declaration and explicit agreement to the review rubric, before any set review can begin. The onboarding must also define how topic-appropriate reviewer coverage (palliative, genetics, paediatric) will be sourced for future sets.",
+  "objective": "Identify, contact, and onboard at least one credentialed oncology clinician (medical/clinical/radiation oncologist or oncology-credentialed clinician) and at least one trained patient advocate; obtain a COI declaration and rubric agreement from each; record the roster (contacts out-of-band); and document how topic-appropriate coverage for sensitive sets will be sourced going forward.",
+  "acceptanceCriteria": [
+    "At least one credentialed oncology clinician is onboarded: credentials verified, COI declaration obtained and recorded (contacts out-of-band, never committed to the repo), and agreement to the review rubric (templates/review-rubric.md from qpl-rubric-001) confirmed",
+    "At least one trained patient advocate is onboarded with the same COI declaration and rubric agreement",
+    "A reviewer-roster document (not committed to the repo — stored securely out-of-band) records: name, credentials/affiliation, contact method, COI declaration date, rubric agreement date, topic specializations",
+    "The onboarding process documents how topic-appropriate reviewer coverage will be sourced for sensitive sets: palliative-care input for end-of-life sets, genetic counsellor for hereditary-risk sets, paediatric oncologist for paediatric sets — including the rule that a set is not published if the topic-appropriate reviewer is unavailable",
+    "A brief in-repo document (docs/reviewer-onboarding-summary.md or similar) records that reviewers are onboarded and committed, without naming them or including contact details; records the topic-appropriate coverage plan and the no-publish-without-reviewer rule"
+  ],
+  "resources": [
+    "PLAN.md (Governance section; Quality gates — Reviewer independence; Open questions #1)",
+    "TASKS.md (qpl-reviewers-001 row and AC; M0 Definition of Done)",
+    "templates/review-rubric.md (qpl-rubric-001 — must exist before onboarding)",
+    "Candidate outreach targets: professional-society volunteer networks, advocacy-org reviewer pools, hospital patient-education departments, disease-specific foundations"
+  ],
+  "output": "docs/reviewer-onboarding-summary.md (in-repo, no PII); reviewer roster stored securely out-of-band",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC BY 4.0"
+}

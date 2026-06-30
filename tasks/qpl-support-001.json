@@ -1,0 +1,34 @@
+{
+  "id": "qpl-support-001",
+  "title": "Verified crisis/support-resource directory (>=1 region)",
+  "project": "question-prompt-lists",
+  "type": "data",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["cancer", "patient-education", "oncology", "mental-health", "crisis-resources"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "dataset",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "QPL sets that touch distress, prognosis, end-of-life, or other sensitive topics must include verified crisis and support-line resources. Stale or wrong helpline information could cause direct harm to a distressed patient. The CI structural check (qpl-schema-001) will require a support-resources reference on any set with a sensitivity field; those references must point to verified entries in this directory. The directory must record verifiedBy and verifiedDate for each entry so staleness can be detected. This is a first-class M0 artifact, not an afterthought.",
+  "objective": "Create support/resources.yaml — a structured, verified directory of crisis and cancer support lines for at least one region — and support/README.md explaining the schema, the verification process, and how to add new regions. Each entry must conform to supportResourceSchema (added in qpl-schema-001).",
+  "acceptanceCriteria": [
+    "support/resources.yaml contains at least one verified region with: name, region (ISO country/region code), contact (phone/url), hours, url, verifiedBy (named individual), verifiedDate (ISO date), and a brief description of the service",
+    "The directory includes at minimum: a national cancer support/information line (e.g., NCI Cancer Information Service for the US region), a mental-health or distress line relevant to cancer patients, and a 988-equivalent (or regional crisis line) for at least one region",
+    "Each entry has been manually verified current — the contact information was tested or confirmed from the official source — before listing; verification method noted in verifiedBy/verifiedDate",
+    "support/resources.yaml validates against supportResourceSchema (from qpl-schema-001) in CI",
+    "support/README.md documents the schema fields, the verification procedure, how to add a new region, and the re-verification cadence requirement (to be checked on the qpl-refresh-001 cadence)"
+  ],
+  "resources": [
+    "PLAN.md (Data, licensing section — crisis/helpline info must be verified; Risks row for 'Crisis/helpline info wrong or stale')",
+    "TASKS.md (qpl-support-001 row)",
+    "qpl-schema-001 (supportResourceSchema must be defined first)",
+    "NCI Cancer Information Service (1-800-4-CANCER / cancer.gov/contact)",
+    "988 Suicide and Crisis Lifeline (988lifeline.org — relevant to cancer distress contexts)"
+  ],
+  "output": "support/resources.yaml, support/README.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

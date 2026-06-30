@@ -1,0 +1,38 @@
+{
+  "id": "qpl-translate-001",
+  "title": "Translation pilot for >=1 set under a separate high-risk translation gate",
+  "project": "question-prompt-lists",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "low",
+  "domain": ["cancer", "patient-education", "oncology", "health-communication", "translation", "plain-language"],
+  "riskTier": "high",
+  "urgent": false,
+  "deliverable": "translation",
+  "tokenEstimate": "large",
+  "status": "open",
+  "context": "QPL sets are built translation-ready (structured YAML, machine-readable questions, no idiomatic English) but not translated in v0.1. M3 pilots the first translation under a separate high-risk review gate, reusing the vital-info-translations review model: a qualified medical-translation reviewer (not just a bilingual speaker) plus back-translation QA for any sensitive content (prognosis, end-of-life), plus the original clinician endorsing meaning preservation. The disclaimer and support resources must be localized and verified for the target region. Without back-translation for sensitive content, a subtle meaning shift could cause a patient harm.",
+  "objective": "Produce a pilot translation of at least one dual-signed-off, adopted QPL set into a target language agreed with the partner, passing the high-risk translation gate: qualified medical-translation reviewer, back-translation QA for sensitive content, original clinician endorsement of meaning preservation, localized disclaimer and regionally-verified support resources.",
+  "acceptanceCriteria": [
+    "At least one QPL set (already dual-signed-off and adopted) is translated into one agreed target language; the translated file is present in sets/<stage>/<topic>/set.<lang-code>.yaml (or an agreed localization directory structure)",
+    "The translation was produced or reviewed by a qualified medical-translation reviewer (credentials: medical translation background + familiarity with oncology terminology); reviewer credentials and COI declaration recorded in the review block",
+    "Back-translation QA has been performed for any question with a sensitivity field (prognosis, end-of-life, fertility, genetics): a different qualified translator back-translated the target-language text to English; any meaning drift is adjudicated and resolved before sign-off",
+    "The original set's clinician reviewer (or an equivalent credentialed clinician) has endorsed that the translated questions preserve the intended meaning and remain clinically appropriate",
+    "The verbatim disclaimer is localized (translated and verified to convey the same meaning: 'This is education, not medical advice — always consult your own care team')",
+    "Support resources are localized: the resources listed in the translated set are verified support lines in the target region and language, not the English-region resources from the original",
+    "The localized support resources have been independently verified current (verifiedBy, verifiedDate) for the target region",
+    "CI structural checks pass for the translated file (schema validation; disclaimer, sign-off, provenance, support resources present)"
+  ],
+  "resources": [
+    "PLAN.md (M3 translation gate; vital-info-translations review model; Data/licensing — CC BY 4.0 permits translation with attribution)",
+    "TASKS.md (qpl-translate-001 row and AC)",
+    "planning/projects/vital-info-translations/PLAN.md (review model to reuse)",
+    "sets/<stage>/<topic>/set.yaml (source set to translate — must be adopted first per qpl-delivery-001)",
+    "support/resources.yaml (qpl-support-001 — to identify which resources need regional replacement)",
+    "docs/partner-brief.md (qpl-partner-001 — target language/region may be partner-specified)"
+  ],
+  "output": "sets/<stage>/<topic>/set.<lang-code>.yaml (translated set with localized disclaimer, localized support resources, and translation review sign-off block)",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC BY 4.0"
+}

@@ -1,0 +1,34 @@
+{
+  "id": "qpl-delivery-001",
+  "title": "Package, deliver, and confirm partner adoption + patient feedback loop",
+  "project": "question-prompt-lists",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": ["cancer", "patient-education", "oncology", "partnerships", "governance"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Authoring and dual sign-off (qpl-sets-003) produce a 'delivered' set. 'Shipped' requires the additional step of the partner actually distributing the set to patients and confirming this in writing. This is the first true Definition of Shipped event for the project. The delivery package must include all required elements (questions, disclaimer, provenance, sign-off, support resources) and be in a format the partner can actually use. The PII-safe feedback loop must be established before delivery so usefulness data can flow back. Partner confirmation of adoption must be recorded in the PR/receipt.",
+  "objective": "Package the partner-priority set(s) from qpl-sets-003 in the agreed distribution format, hand off to the partner, and record written confirmation from the partner that the set has been adopted (given to patients); establish the PII-safe patient feedback loop.",
+  "acceptanceCriteria": [
+    "The delivery package for each set includes: the full set (questions, disclaimer, provenance summary, dual sign-off record, support resources) in the partner's agreed distribution format (e.g., printable PDF, plain-text Markdown, or partner-specific format)",
+    "The partner has received the package and confirmed in writing (email or equivalent) that the set has been adopted and given to patients; this confirmation is referenced in the PR/receipt (stored out-of-band; not committed in full to the repo)",
+    "A PII-safe patient feedback method is operational: the partner has agreed how to collect and share feedback; only aggregate, de-identified summaries reach Elyos; no patient contact data is collected by Elyos",
+    "A delivery receipt document (docs/delivery-receipt-<partner>-<date>.md or similar) is committed to the repo recording: set(s) delivered, date, partner name, distribution channel, confirmation method, nextReviewDue date, and feedback mechanism (no PII)",
+    "The set(s) are marked status: delivered in their YAML files; nextReviewDue is set and within 12 months",
+    "The Steward signs off on the delivery receipt in the PR"
+  ],
+  "resources": [
+    "sets/<stage>/<topic>/set.yaml (qpl-sets-003 — sets to deliver)",
+    "docs/partner-brief.md (qpl-partner-001 — distribution format, feedback method)",
+    "docs/runbook.md (qpl-runbook-001 — delivery step)",
+    "PLAN.md (Definition of Shipped; M2 exit criteria)"
+  ],
+  "output": "docs/delivery-receipt-<partner>-<date>.md; partner adoption confirmation referenced in PR",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC BY 4.0"
+}

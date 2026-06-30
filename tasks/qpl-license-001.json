@@ -1,0 +1,38 @@
+{
+  "id": "qpl-license-001",
+  "title": "Automate license/provenance enforcement (attestation, provenance, disclaimer, support presence)",
+  "project": "question-prompt-lists",
+  "type": "code",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["cancer", "patient-education", "tooling", "ci-cd", "licensing", "content-integrity"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "The structural check added in qpl-schema-001 validates YAML schema conformance. This task hardens the license and provenance gates: it verifies that the content inside each set is actually safe to publish — the disclaimer is present verbatim, every source referenced in provenance[] exists in sources/allow-list.yaml and has compatible terms (not reference-only for adapted content), the dual sign-off block is present and non-empty, nextReviewDue is set, and (for sensitive sets) verified support resources are referenced. These checks are currently manual gates in the review rubric; automating them in CI catches structural violations before reviewers ever see the file and makes the license gate auditable.",
+  "objective": "Extend the CI check (or scripts/check-content.ts from qpl-schema-001) to enforce: (1) verbatim disclaimer present in every set; (2) every source in provenance[] cross-checks against sources/allow-list.yaml with compatible type (not reference-only if content is adapted); (3) original-authorship attestation present; (4) dual review sign-off block present and non-empty (clinician + advocate fields non-empty); (5) nextReviewDue date present and in the future; (6) for any set with a question.sensitivity field, at least one supportResources[] entry is present.",
+  "acceptanceCriteria": [
+    "CI fails any published set missing the verbatim not-medical-advice disclaimer",
+    "CI fails any published set where a provenanceRefs entry references a source id not present in sources/allow-list.yaml",
+    "CI fails any published set where a provenanceRefs entry references a source that is typed reference-only in the allow-list (reference-only sources may inform authoring but must not be cited as the basis for content)",
+    "CI fails any published set missing the original-authorship attestation field",
+    "CI fails any published set where the review block's clinician or advocate sign-off fields are absent or empty",
+    "CI fails any published set missing nextReviewDue or where nextReviewDue is in the past",
+    "CI fails any published set that has at least one question with a sensitivity field but has an empty supportResources array",
+    "All checks emit a descriptive error message naming the set file and the specific failure",
+    "Existing qpl-set-001 (from M0) passes all these checks",
+    "pnpm build && pnpm test pass on a green repo state"
+  ],
+  "resources": [
+    "PLAN.md (Data, licensing section; Quality gates; CI gate behavior from Solution approach)",
+    "TASKS.md (qpl-license-001 row and AC)",
+    "scripts/check-content.ts (qpl-schema-001 — extend this rather than creating a separate script)",
+    "sources/allow-list.yaml (qpl-sources-001 — the cross-check target)"
+  ],
+  "output": "Extended scripts/check-content.ts (or equivalent); PR with CI evidence of all 7 gate checks running",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}
