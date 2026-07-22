@@ -11,13 +11,13 @@
   "deliverable": "document",
   "tokenEstimate": "medium",
   "status": "open",
-  "context": "All M2 and M3 tasks depend on a secured partner clinic or advocacy organization. Without a partner, QPL sets cannot reach 'shipped' (adopted and given to patients). This is the gating task for M2: the Steward (named by end of M1 in qpl-reviewers-002) leads outreach to candidate clinic/advocacy organizations; on confirmation, all downstream tasks update their requestor field and verifiedNeed to true. A pause/decision point applies: if no partner is secured by end of M1, the maintainer must make an explicit go/pivot/hold decision before authorizing further set work. The partner agreement must include a PII-safe feedback method — no patient data reaches Elyos.",
+  "context": "All M2 and M3 tasks depend on a secured partner clinic or advocacy organization. Without a partner, QPL sets cannot reach 'shipped' (adopted and given to patients). This is the gating task for M2: the Steward (named by end of M1 in qpl-reviewers-002) leads outreach to candidate clinic/advocacy organizations; on confirmation, all downstream tasks update their requestor field and verifiedNeed to true. A pause/decision point applies: if no partner is secured by end of M1, the maintainer must make an explicit go/pivot/hold decision before authorizing further set work. The partner agreement must include a PII-safe feedback method — no patient data reaches Hee-Lee Oss.",
   "objective": "Secure a named clinic or advocacy organization as the first requestor: confirm the partner in writing, agree on the target patient population, journey stage(s), and topic priorities, define the distribution channel, and establish a PII-safe patient feedback method; record the partnership in-repo and update related tasks.",
   "acceptanceCriteria": [
     "A named clinic or advocacy organization is confirmed in writing (email or MOU) as the first requestor; confirmation is referenced in the PR (document stored out-of-band, never committed in full to the repo)",
     "The agreed population, journey stage(s), and topic priorities are documented in-repo in docs/partner-brief.md (no PII; organization name is public once they consent to it)",
     "The agreed distribution channel is documented: how the partner will give QPL sets to patients",
-    "A PII-safe patient feedback method is agreed and documented: feedback stays with the partner; only aggregate, de-identified summaries (if any) are shared with Elyos",
+    "A PII-safe patient feedback method is agreed and documented: feedback stays with the partner; only aggregate, de-identified summaries (if any) are shared with Hee-Lee Oss",
     "The pause/decision point is honored: if no partner is confirmed by end of M1, the maintainer's go/pivot/hold decision is recorded in docs/partner-brief.md before any further set work proceeds",
     "On completion, the Steward updates qpl-sets-003 and qpl-delivery-001 with the confirmed requestor and sets verifiedNeed to true on those tasks"
   ],

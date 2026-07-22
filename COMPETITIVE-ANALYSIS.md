@@ -1,6 +1,6 @@
 # Competitive & Improvement Analysis — `question-prompt-lists`
 
-> Scope: rigorous review of `PLAN.md` (v0.1.0) + `TASKS.md` for the Elyos cancer good-deed project
+> Scope: rigorous review of `PLAN.md` (v0.1.0) + `TASKS.md` for the Hee-Lee Oss cancer good-deed project
 > producing open, evidence-based "questions to ask your oncologist" prompt sets (QPLs) tagged by
 > topic and journey stage. Web-researched, source-cited. CANCER GUARDRAILS apply throughout.
 
@@ -120,7 +120,7 @@ best lawful source.**
 type-specific guides; reviewed by a multidisciplinary editorial board including patient advocates
 ([Cancer.Net editorial model](https://pmc.ncbi.nlm.nih.gov/articles/PMC2793912/)).
 *Strengths:* clinically vetted, type-specific, broad coverage, exactly the dual clinician+advocate
-review model Elyos proposes — proven at scale. *Weaknesses:* **copyrighted (reference-only)**,
+review model Hee-Lee Oss proposes — proven at scale. *Weaknesses:* **copyrighted (reference-only)**,
 English-centric, embedded in long guides (not standalone structured QPLs), not openly licensed for
 clinics/translators to adapt.
 
@@ -139,7 +139,7 @@ lymphoma). *Weaknesses:* copyrighted, UK-health-system-specific, PDF/HTML, Engli
 
 **Cancer Research UK.** "What to ask your doctor," including a dedicated **rare cancers** page
 ([CRUK rare cancers](https://cancerresearchuk.org/about-cancer/rare-cancers/getting-diagnosed/what-to-ask-your-doctor)).
-*Strengths:* good rare-cancer angle (relevant to Elyos's Ewing/sarcoma ties). *Weaknesses:*
+*Strengths:* good rare-cancer angle (relevant to Hee-Lee Oss's Ewing/sarcoma ties). *Weaknesses:*
 copyrighted, UK-specific, static.
 
 **AHRQ QuestionBuilder (app + web).** The closest *tool* competitor: a dynamic question-builder that
@@ -281,14 +281,14 @@ structured, stage×topic-tagged, provenance-bearing, translation-ready QPL *data
 - **Generalized, condition-agnostic QPL engine.** The schema, style guide, review rubric, provenance
   model, and CI gates are disease-neutral. Spin out a core QPL framework that other conditions
   (diabetes, mental health, rare disease) reuse — cancer is the first vertical. High leverage.
-- **AHRQ QuestionBuilder integration.** Contribute Elyos's open, sourced oncology question sets as
+- **AHRQ QuestionBuilder integration.** Contribute Hee-Lee Oss's open, sourced oncology question sets as
   content into the AHRQ tool flow (or mirror its export model) — partnership, not competition
   ([QuestionBuilder](https://www.ahrq.gov/questions/question-builder/index.html)).
 - **MCP server for QPLs.** Expose the open corpus via an MCP server (`get_questions(stage, topic,
   cancerType, region, readingLevel)`) so any agent/portal can surface vetted, sourced questions —
   the composable, data-not-destination differentiator made real. (Read-only; carries disclaimers;
   no personalization that crosses into advice.)
-- **Ties to sibling Elyos projects:**
+- **Ties to sibling Hee-Lee Oss projects:**
   - `ewing-family-guide` / sarcoma: rare-cancer QPL sets (newly-diagnosed, second-opinion, trials),
     where incumbent coverage is thinnest (CRUK aside).
   - `ewing-trial-finder`: a dedicated **clinical-trials** QPL ("questions to ask about a trial:

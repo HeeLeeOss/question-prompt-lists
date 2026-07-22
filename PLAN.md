@@ -5,7 +5,7 @@
 
 ## Executive summary
 
-`question-prompt-lists` is an Elyos good-deed project that produces **open, freely reusable
+`question-prompt-lists` is a Hee-Lee Oss good-deed project that produces **open, freely reusable
 "questions to ask your oncologist" prompt sets**, organized by **topic** (e.g., understanding the
 diagnosis, treatment options, side effects, clinical trials, genetics, cost, fertility,
 survivorship, palliative/end-of-life) and by **stage of the cancer journey** (newly diagnosed,
@@ -35,7 +35,7 @@ appears in framing text or in a question's rationale carries **provenance**; any
 ground and an expert cannot endorse is not published.
 
 The work runs in the **donated lane**: a human runs their own coding agent to draft QPL content and
-tooling, then opens PRs; the Elyos CLI only prepares workspaces and opens PRs. It never invokes an
+tooling, then opens PRs; the Hee-Lee Oss CLI only prepares workspaces and opens PRs. It never invokes an
 agent and never runs headless.
 
 Honest status note: **no partner clinic or advocacy organization, and no expert reviewer, is yet
@@ -133,7 +133,7 @@ correctly-licensed sets adopted and given to patients.**
 | QPL sets **adopted by a partner** and given to patients | 0 | ≥ 3 sets in ≥ 1 setting | Partner written confirmation in PR/receipt |
 | Topic × journey-stage **coverage** (cells filled, expert-reviewed) | 0 | ≥ 6 cells across ≥ 3 stages | Coverage matrix in repo |
 | **Critical content defects** found *after* publication (embedded advice, factual error, leading/biased question, missing disclaimer) | n/a | **0** (hard gate) | Post-publication defect log |
-| Patient/caregiver-reported **usefulness** ("helped me ask what mattered") | n/a | Positive from a partner sample | Partner-run feedback (no PII to Elyos) |
+| Patient/caregiver-reported **usefulness** ("helped me ask what mattered") | n/a | Positive from a partner sample | Partner-run feedback (no PII to Hee-Lee Oss) |
 | Sets within their **review-refresh window** (re-reviewed ≤ 12 months / on guideline change) | n/a | 100% | `nextReviewDue` audit |
 | **Plain-language target met** (reading level + accessibility checks) | n/a | 100% of published sets | Readability + a11y check in CI + advocate sign-off |
 
@@ -199,7 +199,7 @@ high-risk gate, see Roadmap M3).
 ## Solution approach & architecture
 
 This is primarily a **content/data project** (deliverables are structured QPL content + supporting
-data), with light tooling for validation. It rides on existing Elyos donated-lane mechanics (CLI
+data), with light tooling for validation. It rides on existing Hee-Lee Oss donated-lane mechanics (CLI
 prepares workspace, human runs their agent, PR opened, human + **expert** review gate "done").
 
 **Pipeline (per QPL set)**
@@ -318,7 +318,7 @@ carries an **original-authorship attestation** (no copyrighted QPL was copied).
 **Privacy / PII.** **No patient data is ingested or stored — none.** Sources are public guidance
 and **aggregate** statistics only. The project collects **no end-reader data** and runs **no
 telemetry**. Any partner-run patient feedback stays with the partner; only **aggregate,
-de-identified** summaries (if any) ever reach Elyos. Partner/reviewer contact details are handled
+de-identified** summaries (if any) ever reach Hee-Lee Oss. Partner/reviewer contact details are handled
 out-of-band and never committed.
 
 **Attribution & disclaimer.** Every patient-facing artifact includes: the verbatim **not-medical-advice
@@ -420,7 +420,7 @@ Goal: deliver adopted sets to real patients. **All tasks gated on a secured part
 (`verifiedNeed` flips to `true` only when confirmed).
 Exit criteria: a partner clinic/advocacy org secured; agreed population/stage/topic list; **≥ 1
 expert-reviewed, correctly-licensed set delivered and confirmed adopted** (given to patients);
-partner-run feedback loop established (no PII to Elyos). First true **Definition of Shipped** event.
+partner-run feedback loop established (no PII to Hee-Lee Oss). First true **Definition of Shipped** event.
 
 **M3 — Scale, type-specific sets, and translation.**
 Goal: scale coverage with sustained quality.
@@ -434,7 +434,7 @@ review model: qualified medical-translation reviewer + back-translation for sens
 ## Work breakdown
 
 The itemized, sized backlog lives in **[TASKS.md](./TASKS.md)**, organized by the milestones above
-(M0–M3) plus a Backlog/future section. Each task maps to an Elyos Task JSON (see the schema in
+(M0–M3) plus a Backlog/future section. Each task maps to a Hee-Lee Oss Task JSON (see the schema in
 `packages/schema/src/schemas.ts`) with id, type, lane, risk tier, deliverable, acceptance criteria,
 and license fields. M0 tasks are foundation work plus the first expert-reviewed pilot set; M2+ tasks
 are gated on a secured partner and marked accordingly (`verifiedNeed: false` until then). Every
@@ -462,7 +462,7 @@ patient-facing set task carries **riskTier `high`** and a **dual-expert reviewer
 
 ## Dependencies & integrations
 
-- **Elyos donated lane**: `packages/cli` (workspace prep + PR), `packages/core`, `packages/schema`
+- **Hee-Lee Oss donated lane**: `packages/cli` (workspace prep + PR), `packages/core`, `packages/schema`
   (Task JSON + new content schemas). No funded-lane / API-key execution in this project.
 - **Public sources (read-only)**: NCI/Cancer.gov/PDQ, SEER (aggregate), GLOBOCAN/IARC (aggregate);
   copyrighted references (ACS, ASCO/Cancer.Net, NCCN, Macmillan, CRUK, ESMO) **as reference only**.
@@ -502,7 +502,7 @@ patient-facing set task carries **riskTier `high`** and a **dual-expert reviewer
 - **No secrets** in the normal flow (donated lane; no API keys/escrow). Per CLAUDE.md, never write
   secrets/tokens into logs, receipts, or committed files.
 - **PII**: none ingested; partner/reviewer contacts kept out-of-band and uncommitted; any partner
-  patient feedback stays with the partner (only aggregate, de-identified summaries reach Elyos).
+  patient feedback stays with the partner (only aggregate, de-identified summaries reach Hee-Lee Oss).
 - **Abuse/misuse prevention**: refusal guardrails apply (no advice/prognosis, no copyrighted-QPL
   copying, no for-profit steering, no controlled/identifiable data, no unsourced claims). Source
   integrity (authoritative, current, correctly-licensed) is verified per set.
@@ -554,11 +554,11 @@ patient-facing set task carries **riskTier `high`** and a **dual-expert reviewer
 
 ## References
 
-- `C:\code\elyos\CLAUDE.md` — Elyos work rules, lanes, quality bar, refusal guardrails.
-- `C:\code\elyos\docs\good-deed-definition.md` — good-deed criteria and risk tiers.
-- `C:\code\elyos\packages\schema\src\schemas.ts` — Task JSON schema (+ new content schemas).
-- `C:\code\elyos\planning\ROADMAP.md` — portfolio + Track 8 cancer guardrails.
-- `C:\code\elyos\planning\projects\vital-info-translations\PLAN.md` — reused review/license model.
+- `C:\code\hee-lee-oss\CLAUDE.md` — Hee-Lee Oss work rules, lanes, quality bar, refusal guardrails.
+- `C:\code\hee-lee-oss\docs\good-deed-definition.md` — good-deed criteria and risk tiers.
+- `C:\code\hee-lee-oss\packages\schema\src\schemas.ts` — Task JSON schema (+ new content schemas).
+- `C:\code\hee-lee-oss\planning\ROADMAP.md` — portfolio + Track 8 cancer guardrails.
+- `C:\code\hee-lee-oss\planning\projects\vital-info-translations\PLAN.md` — reused review/license model.
 - National Cancer Institute (NCI) / Cancer.gov / PDQ® — public-domain patient information (verify
   trademark/embedded-media exceptions per page).
 - SEER (Surveillance, Epidemiology, and End Results) — aggregate statistics (public domain,
@@ -612,7 +612,7 @@ in the body above** (not left as suggestions):
 20. **Review-refresh cadence** (`nextReviewDue` ≤12 months / on guideline change) with auto-flagging
     of stale sets and a withdrawal procedure (Sustainability).
 21. **No-telemetry / no-patient-data** stance stated absolutely; partner patient feedback stays with
-    the partner (only aggregate summaries reach Elyos) (Security & privacy).
+    the partner (only aggregate summaries reach Hee-Lee Oss) (Security & privacy).
 22. **For-profit-steering guardrail**: no brands/drugs/sponsors; neutrality rubric + advocate review +
     refusal trigger (Risks, Quality gates).
 23. **Content schemas added to `packages/schema`** (qplSet/qplQuestion/sourceAllowList/taxonomy/

@@ -16,7 +16,7 @@
   "acceptanceCriteria": [
     "The delivery package for each set includes: the full set (questions, disclaimer, provenance summary, dual sign-off record, support resources) in the partner's agreed distribution format (e.g., printable PDF, plain-text Markdown, or partner-specific format)",
     "The partner has received the package and confirmed in writing (email or equivalent) that the set has been adopted and given to patients; this confirmation is referenced in the PR/receipt (stored out-of-band; not committed in full to the repo)",
-    "A PII-safe patient feedback method is operational: the partner has agreed how to collect and share feedback; only aggregate, de-identified summaries reach Elyos; no patient contact data is collected by Elyos",
+    "A PII-safe patient feedback method is operational: the partner has agreed how to collect and share feedback; only aggregate, de-identified summaries reach Hee-Lee Oss; no patient contact data is collected by Hee-Lee Oss",
     "A delivery receipt document (docs/delivery-receipt-<partner>-<date>.md or similar) is committed to the repo recording: set(s) delivered, date, partner name, distribution channel, confirmation method, nextReviewDue date, and feedback mechanism (no PII)",
     "The set(s) are marked status: delivered in their YAML files; nextReviewDue is set and within 12 months",
     "The Steward signs off on the delivery receipt in the PR"

@@ -21,8 +21,8 @@
     "File validates against sourceAllowListSchema and passes CI structural checks"
   ],
   "resources": [
-    "C:/code/elyos/planning/projects/question-prompt-lists/PLAN.md",
-    "C:/code/elyos/planning/ROADMAP.md",
+    "C:/code/hee-lee-oss/planning/projects/question-prompt-lists/PLAN.md",
+    "C:/code/hee-lee-oss/planning/ROADMAP.md",
     "NCI / Cancer.gov / PDQ public-domain notice (verify trademark and embedded-media exceptions)",
     "SEER citation/usage terms; GLOBOCAN / IARC usage terms (verify per use)"
   ],
